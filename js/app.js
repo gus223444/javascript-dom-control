@@ -1,28 +1,39 @@
-const tabs=document.querySelectorAll('.tabs li')
-const contents= document.querySelectorAll('.content')
+const bg = document.querySelector('#wrap')
+const title = document.querySelector('h1')
+const playBtn = document.querySelector('.play')
+const stopBtn = document.querySelector('.stop')
 
+function getRandomColor() {
+    const hex = '#' + Math.random().toString(16).slice(2, 8).padEnd(6, '0')
+    console.log(hex)
 
-init(0)
-
-function init(num){
-    tabs[num].classList.add('active')
-    contents[num].classList.add('on')
+    return hex
 }
 
-function reset(){
-    for(let i=0 ;i<tabs.length;i++){
-        
-        tabs[i].classList.remove('active')
-        contents[i].classList.remove('on')
+function bgChange() {
+
+    const randomColor = getRandomColor()
+
+    bg.style.backgroundColor = randomColor
+    title.textContent = randomColor.toUpperCase()
+
+}
+
+bgChange()
+let play=null;
+
+
+
+playBtn.addEventListener('click',()=>{
+    if(!play){
+
+        play=setInterval(bgChange,2000)
     }
-}
 
+})
+stopBtn.addEventListener('click',()=>{
+    clearInterval(play)
 
-tabs.forEach(function(tab,i){
-    tab.addEventListener('click',function(){
-        console.log(i)
-        reset()
-        init(i)
-    })
+    play=null
 
 })
