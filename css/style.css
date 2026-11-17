@@ -1,49 +1,85 @@
-
-body {
-    font-family: "Noto Sans KR", sans-serif;
-    color: #333333;
-    background-color: #f5f3ff;
-}
-
-h1,
-h2,
-h3 {
-    font-family: "Do Hyeon", sans-serif;
-    font-weight: normal;
-}
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-ul {
-    list-style: none;
+.gallery {
+    height: 800px;
 }
 
-#wrap {
-    height: 100vh;
-    background-color: #2A7B9B;
+.gallery .swiper-slide {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
 
+.gallery .swiper-slide.s01 {
+    background-image: url(../img/1.jpg);
+}
+
+.gallery .swiper-slide.s02 {
+    background-image: url(../img/2.jpg);
+}
+
+.gallery .swiper-slide.s03 {
+    background-image: url(../img/3.jpg);
+}
+
+.inner {
+    max-width: 1200px;
+    margin: auto;
+    height: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 10px;
-    flex-direction: column;
+}
+
+.gallery .swiper-slide.s02 .inner {
+    justify-content: center;
+}
+
+.gallery .swiper-slide.s03 .inner {
+    justify-content: flex-end;
+}
+.t-wrap{
+    background-color: #00000093;
     color: #fff;
-    font-size:100px ;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.315);
+    padding: 30px;
+    text-align: center;
+    transition: all .3s 1s;
+    opacity: 0;
+    transform: translateY(30px);
 }
-.btn-wrap button{
-    /* display: inline-block; */
-    padding:20px 40px;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
+
+.swiper-slide-active .t-wrap{
+    transform: translateY(0);
+    opacity: 1;
 }
-.btn-wrap button.play{
-    background-color: #000;
-    color:#fff
+.arrow{
+    background-color: #ffffff93;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.arrow svg{
+    display: none;
+}
+.swiper-button-next{
+    background-image: url(../img/right.png);
+}
+.swiper-button-prev{
+    background-image: url(../img/left.png);
+}
+
+.gallery .swiper-pagination-bullet{
+    background-color: #ffffff82;
+    opacity: 1;
+    width: 10px;
+    height: 10px;
+    border-radius: 0;
+    transition: width .3s;
+}
+.gallery .swiper-pagination-bullet.swiper-pagination-bullet-active{
+    background-color:#fff;
+    width: 30px;
 }
